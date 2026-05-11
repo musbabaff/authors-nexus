@@ -55,8 +55,8 @@ export const tome = defineType({
       title: 'Pieces',
       type: 'array',
       of: [
-        defineArrayMember({ type: 'reference', to: [{ type: 'poem' }] }),
-        defineArrayMember({ type: 'reference', to: [{ type: 'story' }] }),
+        defineArrayMember({ type: 'reference', name: 'poemRef', to: [{ type: 'poem' }] }),
+        defineArrayMember({ type: 'reference', name: 'storyRef', to: [{ type: 'story' }] }),
       ],
       description: 'Ordered list of poems and stories in this collection.',
     }),
