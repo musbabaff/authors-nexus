@@ -1,0 +1,16 @@
+{
+  "common": {
+    "siteName": "The Author's Nexus",
+    "loading": "..."
+  },
+  "nav": {
+    "atelier": "Atelier",
+    "library": "Library",
+    "frame": "Frame",
+    "colophon": "Colophon"
+  },
+  "threshold": {
+    "tagline": "[CLIENT_TAGLINE]",
+    "enter": "Enter"
+  }
+}

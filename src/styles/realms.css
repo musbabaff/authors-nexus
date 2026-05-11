@@ -1,0 +1,133 @@
+/**
+ * Realm CSS custom properties — The Author's Nexus
+ *
+ * Applied via [data-realm="..."] on <html>.
+ * Default (:root) = Threshold (neutral, transitional).
+ *
+ * DO NOT use hardcoded colors in components — always reference these variables.
+ * See MASTER_ARCHITECTURE.md §4.1 for the design rationale.
+ */
+
+/* ─── Default / Threshold ───────────────────────────────────────────────────── */
+:root {
+  --realm: 'threshold';
+
+  /* Backgrounds */
+  --color-bg: #1a1a1a;
+  --color-bg-subtle: #242424;
+
+  /* Foregrounds */
+  --color-fg: #ffffff;
+  --color-fg-muted: rgba(255, 255, 255, 0.55);
+
+  /* Accent */
+  --color-accent: #ffffff;
+  --color-accent-soft: rgba(255, 255, 255, 0.08);
+
+  /* Border */
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  /* Fonts (mapped from next/font CSS vars set on <html>) */
+  --font-display: var(--font-fraunces, 'Georgia', serif);
+  --font-body: var(--font-inter, system-ui, sans-serif);
+  --font-mono: var(--font-jetbrains-mono, 'Courier New', monospace);
+
+  /* Motion */
+  --ease-organic: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-micro: 200ms;
+  --duration-standard: 400ms;
+  --duration-page: 800ms;
+  --duration-cinematic: 1400ms;
+}
+
+/* ─── Atelier (light, brutalist, professional) ──────────────────────────────── */
+[data-realm='atelier'] {
+  --realm: 'atelier';
+  --color-bg: #fafaf7;
+  --color-bg-subtle: #f0efea;
+  --color-fg: #0a0a0a;
+  --color-fg-muted: #4a4a4a;
+  --color-accent: #1a1a1a;
+  --color-accent-soft: #e8e6df;
+  --color-border: rgba(10, 10, 10, 0.12);
+  --font-display: var(--font-inter, system-ui, sans-serif);
+  --font-body: var(--font-inter, system-ui, sans-serif);
+  --font-mono: var(--font-jetbrains-mono, 'Courier New', monospace);
+}
+
+/* ─── Library (deep dark, literary, paper-textured) ────────────────────────── */
+[data-realm='library'] {
+  --realm: 'library';
+  --color-bg: #0a0908;
+  --color-bg-subtle: #15110d;
+  --color-fg: #e8dfcf;
+  --color-fg-muted: #8a8275;
+  --color-accent: #c9a55c;
+  --color-accent-soft: rgba(201, 165, 92, 0.15);
+  --color-border: rgba(232, 223, 207, 0.08);
+  --font-display: var(--font-cormorant, 'Georgia', serif);
+  --font-body: var(--font-cormorant, 'Georgia', serif);
+  --font-mono: var(--font-jetbrains-mono, 'Courier New', monospace);
+}
+
+/* ─── Frame (image-first, true black, minimal) ──────────────────────────────── */
+[data-realm='frame'] {
+  --realm: 'frame';
+  --color-bg: #000000;
+  --color-bg-subtle: #0a0a0a;
+  --color-fg: #ffffff;
+  --color-fg-muted: rgba(255, 255, 255, 0.6);
+  --color-accent: #ffffff;
+  --color-accent-soft: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --font-display: var(--font-inter, system-ui, sans-serif);
+  --font-body: var(--font-inter, system-ui, sans-serif);
+}
+
+/* ─── Fluid Typography Scale ───────────────────────────────────────────────── */
+:root {
+  /* Atelier / Frame scale */
+  --text-display-xl: clamp(3.5rem, 8vw, 7rem);
+  --text-display-lg: clamp(2.5rem, 6vw, 5rem);
+  --text-heading-xl: clamp(2rem, 4vw, 3.5rem);
+  --text-heading-lg: clamp(1.5rem, 3vw, 2.25rem);
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-caption: 0.875rem;
+
+  /* Line heights */
+  --leading-tight: 1.1;
+  --leading-comfortable: 1.5;
+  --leading-generous: 1.75;
+}
+
+/* Library uses a slightly larger optical size due to serif body text */
+[data-realm='library'] {
+  --text-display-xl: clamp(4rem, 9vw, 8rem);
+  --text-display-lg: clamp(3rem, 7vw, 6rem);
+  --text-heading-xl: clamp(2.5rem, 4.5vw, 4rem);
+  --text-heading-lg: clamp(1.75rem, 3vw, 2.75rem);
+  --text-body-lg: 1.25rem;
+  --text-body: 1.125rem;
+  --text-caption: 0.95rem;
+}
+
+/* ─── Reduced Motion ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-micro: 0ms;
+    --duration-standard: 0ms;
+    --duration-page: 0ms;
+    --duration-cinematic: 0ms;
+  }
+
+  /* Disable all CSS transitions and animations globally */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

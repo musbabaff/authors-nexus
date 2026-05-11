@@ -1,0 +1,16 @@
+{
+  "common": {
+    "siteName": "The Author's Nexus",
+    "loading": "Yüklənir..."
+  },
+  "nav": {
+    "atelier": "Atelye",
+    "library": "Kitabxana",
+    "frame": "Çərçivə",
+    "colophon": "Kolofon"
+  },
+  "threshold": {
+    "tagline": "[CLIENT_TAGLINE]",
+    "enter": "Daxil ol"
+  }
+}

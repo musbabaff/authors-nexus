@@ -1,0 +1,16 @@
+{
+  "common": {
+    "siteName": "The Author's Nexus",
+    "loading": "Загрузка..."
+  },
+  "nav": {
+    "atelier": "Ателье",
+    "library": "Библиотека",
+    "frame": "Кадр",
+    "colophon": "Колофон"
+  },
+  "threshold": {
+    "tagline": "[CLIENT_TAGLINE]",
+    "enter": "Войти"
+  }
+}

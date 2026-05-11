@@ -1,0 +1,16 @@
+{
+  "common": {
+    "siteName": "The Author's Nexus",
+    "loading": "Yükleniyor..."
+  },
+  "nav": {
+    "atelier": "Atölye",
+    "library": "Kütüphane",
+    "frame": "Çerçeve",
+    "colophon": "Kolofo"
+  },
+  "threshold": {
+    "tagline": "[CLIENT_TAGLINE]",
+    "enter": "Gir"
+  }
+}

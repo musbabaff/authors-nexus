@@ -1,0 +1,104 @@
+/* Tailwind CSS v4 — new import syntax */
+@import 'tailwindcss';
+
+/* Realm themes (CSS custom properties) */
+@import '../styles/realms.css';
+
+/* ─── Tailwind v4 Theme Extension ──────────────────────────────────────────── */
+/*
+ * Expose realm CSS variables as Tailwind utilities.
+ * Usage: bg-bg, text-fg, text-fg-muted, border-border, etc.
+ */
+@theme {
+  /* Colors — wired to CSS custom properties so realm switching works */
+  --color-bg: var(--color-bg);
+  --color-bg-subtle: var(--color-bg-subtle);
+  --color-fg: var(--color-fg);
+  --color-fg-muted: var(--color-fg-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-border: var(--color-border);
+
+  /* Font families */
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+/* ─── Base styles ───────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Smooth scrolling (disabled in reduced-motion via realms.css) */
+  scroll-behavior: smooth;
+  /* Font size base — do not change; use rem units */
+  font-size: 16px;
+  /* Prevent layout shift on scrollbar appearance */
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  line-height: var(--leading-comfortable);
+  transition:
+    background-color var(--duration-standard) var(--ease-organic),
+    color var(--duration-standard) var(--ease-organic);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Skip-to-content link (accessibility — WCAG AA required) */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+  transition: top 200ms ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus rings — visible, realm-aware, never removed */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Typography helpers */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Fluid type scale utilities */
+.text-display-xl { font-size: var(--text-display-xl); line-height: var(--leading-tight); }
+.text-display-lg { font-size: var(--text-display-lg); line-height: var(--leading-tight); }
+.text-heading-xl { font-size: var(--text-heading-xl); line-height: var(--leading-tight); }
+.text-heading-lg { font-size: var(--text-heading-lg); line-height: 1.2; }
+.text-body-lg    { font-size: var(--text-body-lg); line-height: var(--leading-comfortable); }
+.text-body       { font-size: var(--text-body); line-height: var(--leading-comfortable); }
+.text-caption    { font-size: var(--text-caption); line-height: var(--leading-comfortable); }
